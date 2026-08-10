@@ -15,7 +15,7 @@ export const DEFAULT_TRANSCRIPT_DATA: TranscriptData = {
     appointmentType: "Routine Cleaning",
     insurance: "Delta Dental PPO",
     provider: "Dr. Jennifer Smith",
-    appointmentDateTime: "Wednesday, August 14th at 04:15 PM",
+    appointmentDateTime: "Wednesday, August 12th at 04:15 PM",
     followUpActions: [
       { id: "act-1", label: "Send confirmation SMS", completed: true },
       { id: "act-2", label: "Send confirmation email", completed: true },
@@ -85,7 +85,7 @@ export const DEFAULT_TRANSCRIPT_DATA: TranscriptData = {
       speaker: "FrontDeskAI",
       speakerName: "Ava (FrontDeskAI)",
       timestamp: "00:41",
-      text: "I have a few openings available with Dr. Smith:\n\n• Thursday, August 13th at 9:00 AM\n• Friday, August 14th at 2:00 PM\n• Saturday, Augest 15th at 11:30 AM\n\nDo any of those times work for you?",
+      text: "I have a few openings available with Dr. Smith:\n\n• Tuesday, August 11th at 9:00 AM\n• Wednesday, August 12th at 2:00 PM\n• Thursday, Augest 13th at 11:30 AM\n\nDo any of those times work for you?",
     },
     {
       id: "msg-10",
@@ -114,7 +114,7 @@ export const DEFAULT_TRANSCRIPT_DATA: TranscriptData = {
       speaker: "FrontDeskAI",
       speakerName: "Ava (FrontDeskAI)",
       timestamp: "01:02",
-      text: "Yes, Dr. Smith also has an opening on Wednesday, August 14th at 04:15 PM.",
+      text: "Yes, Dr. Smith also has an opening on Wednesday, August 12th at 04:15 PM.",
     },
     {
       id: "msg-14",
@@ -156,7 +156,7 @@ export const DEFAULT_TRANSCRIPT_DATA: TranscriptData = {
       speaker: "FrontDeskAI",
       speakerName: "Ava (FrontDeskAI)",
       timestamp: "01:30",
-      text: "Wonderful. I have you scheduled with Dr. Jennifer Smith on Friday, Augest 14th at 04:15 PM for a routine dental cleaning.",
+      text: "Wonderful. I have you scheduled with Dr. Jennifer Smith on Wednesday, Augest 12th at 04:15 PM for a routine dental cleaning.",
     },
     {
       id: "msg-20",
