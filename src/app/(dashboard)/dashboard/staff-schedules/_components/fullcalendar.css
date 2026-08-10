@@ -249,20 +249,29 @@
 
 /* Booked */
 .fc-more-popover .fc-daygrid-event.event-type-booked {
-  background-color: #e0f2fe !important;
-  /* Soft blue */
-  border: 1px solid #bae6fd !important;
-  color: #0369a1 !important;
+  background-color: color-mix(in srgb, var(--primary) 12%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent) !important;
+  color: var(--primary) !important;
 }
 
 .fc-more-popover
   .fc-daygrid-event.event-type-booked
   .fc-custom-daygrid-event-header {
-  color: #0369a1 !important;
+  color: var(--primary) !important;
 }
 
 .fc-more-popover .fc-daygrid-event.event-type-booked:hover {
-  background-color: #d0eefb !important;
+  background-color: color-mix(in srgb, var(--primary) 18%, white) !important;
+}
+
+.dark .fc-more-popover .fc-daygrid-event.event-type-booked {
+  background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent) !important;
+  color: var(--primary) !important;
+}
+
+.dark .fc-more-popover .fc-daygrid-event.event-type-booked:hover {
+  background-color: color-mix(in srgb, var(--primary) 22%, transparent) !important;
 }
 
 /* Expired */
@@ -554,3 +563,89 @@
 .dark .fc .fc-toolbar-title {
   color: hsl(var(--foreground)) !important;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Enhanced TimeGrid Events Styling (Week/Day View)
+   ────────────────────────────────────────────────────────────── */
+.fc-timegrid-event {
+  border-radius: 8px !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid transparent !important;
+  overflow: hidden !important;
+}
+
+.fc-timegrid-event:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.03) !important;
+  filter: brightness(0.97) contrast(1.02);
+}
+
+/* Light Mode Styles for TimeGrid Events */
+.fc-timegrid-event.event-type-available {
+  background: linear-gradient(135deg, #e6f8ee 0%, #f0fbf5 100%) !important;
+  border: 1px solid #c2ebd0 !important;
+  border-left: 4.5px solid #10b981 !important;
+}
+
+.fc-timegrid-event.event-type-available .fc-timegrid-custom-content {
+  color: #166534 !important;
+}
+
+.fc-timegrid-event.event-type-booked {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, white) 0%, color-mix(in srgb, var(--primary) 5%, white) 100%) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent) !important;
+  border-left: 4.5px solid var(--primary) !important;
+}
+
+.fc-timegrid-event.event-type-booked .fc-timegrid-custom-content {
+  color: var(--primary) !important;
+}
+
+.fc-timegrid-event.event-type-expired {
+  background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 4.5px solid #64748b !important;
+}
+
+.fc-timegrid-event.event-type-expired .fc-timegrid-custom-content {
+  color: #475569 !important;
+}
+
+/* Dark Mode Styles for TimeGrid Events */
+.dark .fc-timegrid-event.event-type-available {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-left: 4.5px solid #10b981 !important;
+}
+
+.dark .fc-timegrid-event.event-type-available .fc-timegrid-custom-content {
+  color: #86efac !important;
+}
+
+.dark .fc-timegrid-event.event-type-booked {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 20%, transparent) 0%, color-mix(in srgb, var(--primary) 10%, transparent) 100%) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent) !important;
+  border-left: 4.5px solid var(--primary) !important;
+}
+
+.dark .fc-timegrid-event.event-type-booked .fc-timegrid-custom-content {
+  color: var(--primary) !important;
+}
+
+.dark .fc-timegrid-event.event-type-expired {
+  background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.04) 100%) !important;
+  border: 1px solid rgba(100, 116, 139, 0.2) !important;
+  border-left: 4.5px solid #64748b !important;
+}
+
+.dark .fc-timegrid-event.event-type-expired .fc-timegrid-custom-content {
+  color: #94a3b8 !important;
+}
+
+/* Make grid lines cleaner */
+.fc .fc-timegrid-slot-minor {
+  border-top-style: dotted !important;
+  border-top-color: hsl(var(--border) / 0.5) !important;
+}
+

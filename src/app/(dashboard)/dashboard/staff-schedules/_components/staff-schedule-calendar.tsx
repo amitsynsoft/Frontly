@@ -111,13 +111,16 @@ export function StaffScheduleCalendar({
         }}
         allDaySlot={false}
         slotDuration="00:30:00"
-        slotLabelInterval="01:00:00"
+        slotLabelInterval="00:30:00"
         slotMinTime="08:00:00"
-        slotMaxTime="24:00:00"
+        slotMaxTime="18:00:00"
         editable={false}
         selectable={false}
         eventMaxStack={1}
         eventDisplay="block"
+        eventClassNames={(arg) => [
+          "event-type-" + (arg.event.extendedProps?.type || "available"),
+        ]}
         slotLabelFormat={{
           hour: "numeric",
           minute: "2-digit",
@@ -191,7 +194,9 @@ export function StaffScheduleCalendar({
                     fontSize: "0.65rem",
                     opacity: 0.85,
                   }}
-                ></span>
+                >
+                  {timeSlot}
+                </span>
               )}
             </div>
           )

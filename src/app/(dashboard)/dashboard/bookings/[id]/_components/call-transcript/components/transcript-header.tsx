@@ -51,7 +51,7 @@ export function TranscriptHeader({
                 Completed
               </Badge>
             </div>
-            <p className="mt-0.5 text-xs text-muted-foreground">{scenario}</p>
+            {/* <p className="mt-0.5 text-xs text-muted-foreground">{scenario}</p> */}
           </div>
         </div>
 
