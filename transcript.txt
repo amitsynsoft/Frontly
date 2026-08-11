@@ -1,0 +1,85 @@
+Scenario: New patient calls a dental office to schedule a routine cleaning and exam. The dental office uses an AI receptionist (FrontDeskAI) that answers the call, gathers information, checks availability, books the appointment, and sends confirmation.
+
+Dental Appointment Booking Call Transcript
+FrontDeskAI:
+Thank you for calling Smile Dental. This is Ava, the virtual receptionist. How may I help you today?
+Customer:
+Hi, I'd like to schedule a dental cleaning.
+FrontDeskAI:
+I'd be happy to help with that. Your phone number is new to us. Are you an existing patient with our practice, or would this be your first visit?
+Customer:
+This would be my first visit.
+FrontDeskAI:
+Wonderful. We'd be happy to welcome you to Smile Dental. May I have your full name, please?
+Customer:
+Sure. It's Michael Anderson.
+FrontDeskAI:
+Thank you, Michael. And is the number you are calling from the best phone number to reach you if we need to contact you regarding your appointment? That is 312-555-4827.
+Customer:
+That’s right.
+FrontDeskAI:
+Thank you. Do you also have an email address where we can send your appointment confirmation and new patient forms?
+Customer:
+Yes, it's michael.anderson@gmail.com.
+FrontDeskAI:
+That’s it's michael.anderson@gmail.com. Is that right?
+Customer:
+Yes
+FrontDeskAI:
+Perfect. Are you scheduling a routine cleaning and dental exam, or is there a specific concern you'd like the dentist to evaluate?
+Customer:
+Just a routine cleaning and checkup.
+FrontDeskAI:
+Great. Let me check our next available appointments.
+Pause while availability is checked.
+FrontDeskAI:
+I have availability on Friday, August 14th at 10:00 AM, Saturday, August 15th at 2:30 PM, or Monday, August 17th at 9:00 AM. Which would work best for you?
+Customer:
+The Wednesday appointment at 2:30 PM works.
+FrontDeskAI:
+Excellent. Before I finalize the appointment, do you plan to use dental insurance?
+Customer:
+Yes, I have Delta Dental.
+FrontDeskAI:
+Great. We accept many Delta Dental plans. We'll verify your benefits before your appointment. Please bring your insurance card and a photo ID when you arrive.
+Customer:
+Sounds good.
+FrontDeskAI:
+For new patients, we ask that you arrive about 15 minutes early to complete any remaining paperwork and meet the care team.
+Customer:
+Okay.
+FrontDeskAI:
+I have you scheduled for a new patient cleaning and exam on Saturday, August 15th at 2:30 PM with Dr. Sarah Johnson.
+Customer:
+Perfect.
+FrontDeskAI:
+You will receive a text message and email shortly with your appointment details and a link to complete your new patient forms online. We will also send a reminder 48 hours before your appointment.
+Customer:
+Great, thank you.
+FrontDeskAI:
+You're very welcome, Michael. Is there anything else I can help you with today?
+Customer:
+No, that's all.
+FrontDeskAI:
+Thank you for choosing Smile Dental. We look forward to seeing you on Saturday, August 15th. Have a wonderful day.
+Customer:
+You too. Bye.
+FrontDeskAI:
+Goodbye.
+
+Information Captured by FrontDeskAI
+Patient Name: Michael Anderson
+Phone: 312-555-4827
+Email: michael.anderson@gmail.com
+Patient Type: New Patient
+Appointment Type: Cleaning & Exam
+Insurance: Delta Dental
+Provider: Dr. Sarah Johnson
+Appointment Date/Time: Saturday, August 15th, 2:30 PM
+Follow-up Actions:
+Send confirmation SMS
+Send confirmation email
+Send new patient forms
+Verify insurance eligibility
+Schedule automated reminders
+This is a very typical "happy path" dental-office booking call that many U.S. practices receive multiple times per day.

@@ -1,0 +1,556 @@
+/* ──────────────────────────────────────────────────────────────
+   FullCalendar Base
+────────────────────────────────────────────────────────────── */
+
+.fc {
+  background: transparent !important;
+  border: none !important;
+  /* height: 650px !important; */
+}
+
+.fc .fc-scroller {
+  overflow-y: auto !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Toolbar
+────────────────────────────────────────────────────────────── */
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0.8rem;
+}
+
+.fc .fc-toolbar-title {
+  color: hsl(var(--foreground));
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fc .fc-button {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+.fc .fc-button:hover {
+  background: color-mix(in srgb, var(--primary) 85%, black) !important;
+}
+
+.fc .fc-button-active {
+  background: color-mix(in srgb, var(--primary) 70%, black) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.fc .fc-button:focus,
+.fc .fc-button-primary:focus {
+  box-shadow: none !important;
+}
+
+.fc .fc-button-primary:disabled,
+.fc .fc-button:disabled {
+  background: var(--muted) !important;
+  color: var(--muted-foreground) !important;
+  opacity: 0.7;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Headers
+────────────────────────────────────────────────────────────── */
+/* ==========================================================
+   TIMEGRID HEADER TEXT
+========================================================== */
+
+.dark .fc .fc-col-header-cell-cushion,
+.dark .fc .fc-col-header-cell-cushion:link,
+.dark .fc .fc-col-header-cell-cushion:visited,
+.dark .fc .fc-col-header-cell-cushion:hover {
+  color: hsl(var(--foreground)) !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Some FC versions wrap the text inside another div */
+.dark .fc .fc-scrollgrid-sync-inner {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Header row background */
+.dark .fc .fc-col-header-cell {
+  background: hsl(var(--card)) !important;
+}
+
+.fc .fc-col-header-cell {
+  background: hsl(var(--background));
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-col-header-cell-cushion:link,
+.fc .fc-col-header-cell-cushion:visited,
+.fc .fc-col-header-cell-cushion:hover {
+  font-weight: 500;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Grid
+────────────────────────────────────────────────────────────── */
+
+.fc .fc-timegrid-slot {
+  height: 40px !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Today Highlight
+────────────────────────────────────────────────────────────── */
+
+.fc .fc-daygrid-day.fc-day-today,
+.fc .fc-timegrid-col.fc-day-today {
+  background-color: hsl(var(--accent) / 0.06) !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Events — structural only, colors come from API inline styles
+────────────────────────────────────────────────────────────── */
+
+.fc .fc-event-time {
+  display: none !important;
+}
+
+.fc .fc-event-title {
+  line-height: 1.1;
+}
+
+.fc .fc-event a {
+  color: inherit !important;
+  text-decoration: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Day Grid / Month View Events
+────────────────────────────────────────────────────────────── */
+
+.fc .fc-daygrid-more-link {
+  font-size: 0.7rem;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+}
+
+/* Hide event slots and "+more" links on disabled dates or dates from other months */
+.fc .fc-day-other .fc-daygrid-day-events,
+.fc .fc-day-other .fc-daygrid-day-bottom,
+.fc .fc-day-other .fc-daygrid-bg-harness,
+.fc .fc-day-disabled .fc-daygrid-day-events,
+.fc .fc-day-disabled .fc-daygrid-day-bottom,
+.fc .fc-day-disabled .fc-daygrid-bg-harness {
+  display: none !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   More Popover
+────────────────────────────────────────────────────────────── */
+
+.fc-more-popover .fc-popover-header {
+  background: hsl(var(--muted)) !important;
+  color: hsl(var(--foreground)) !important;
+  font-size: 0.825rem !important;
+  font-weight: 600 !important;
+  /* padding: 12px 14px !important; */
+  border-bottom: 1px solid hsl(var(--border)) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.fc-more-popover .fc-popover-title {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.fc-more-popover .fc-popover-close {
+  color: hsl(var(--muted-foreground)) !important;
+  opacity: 0.7;
+  font-size: 1.4rem !important;
+  cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.fc-more-popover .fc-popover-close:hover {
+  opacity: 1;
+}
+
+.fc-more-popover .fc-popover-body {
+  min-width: 240px;
+  padding: 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  max-height: 320px !important;
+  overflow-y: auto !important;
+}
+
+/* Override event style inside popover to render as a card */
+.fc-more-popover .fc-daygrid-event {
+  height: auto !important;
+  min-height: unset !important;
+  margin: 0 !important;
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  display: block !important;
+  white-space: normal !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer;
+  border: 1px solid transparent !important;
+}
+
+/* Make sure the custom card layout displays correctly */
+.fc-more-popover .fc-custom-daygrid-event {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  width: 100% !important;
+}
+
+.fc-more-popover .fc-custom-daygrid-event-header {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  gap: 4px !important;
+  opacity: 0.9 !important;
+}
+
+.fc-more-popover .fc-custom-daygrid-event-title {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+/* Type-specific styling for popover event cards based on state */
+
+/* Available */
+.fc-more-popover .fc-daygrid-event.event-type-available {
+  background-color: #e6f8ee !important;
+  border: 1px solid #c2ebd0 !important;
+}
+
+.fc-more-popover
+  .fc-daygrid-event.event-type-available
+  .fc-custom-daygrid-event-header {
+  color: #1e5a38 !important;
+}
+
+.fc-more-popover .fc-daygrid-event.event-type-available:hover {
+  background-color: #dcf5e5 !important;
+}
+
+/* Booked */
+.fc-more-popover .fc-daygrid-event.event-type-booked {
+  background-color: #e0f2fe !important;
+  /* Soft blue */
+  border: 1px solid #bae6fd !important;
+  color: #0369a1 !important;
+}
+
+.fc-more-popover
+  .fc-daygrid-event.event-type-booked
+  .fc-custom-daygrid-event-header {
+  color: #0369a1 !important;
+}
+
+.fc-more-popover .fc-daygrid-event.event-type-booked:hover {
+  background-color: #d0eefb !important;
+}
+
+/* Expired */
+.fc-more-popover .fc-daygrid-event.event-type-expired,
+.fc-more-popover .fc-daygrid-event.event-expired {
+  background-color: #f1f5f9 !important;
+  /* Soft gray */
+  border: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+.fc-more-popover
+  .fc-daygrid-event.event-type-expired
+  .fc-custom-daygrid-event-header,
+.fc-more-popover
+  .fc-daygrid-event.event-expired
+  .fc-custom-daygrid-event-header {
+  color: #64748b !important;
+}
+
+.fc-more-popover .fc-daygrid-event.event-type-expired:hover,
+.fc-more-popover .fc-daygrid-event.event-expired:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Multi Month
+────────────────────────────────────────────────────────────── */
+
+.fc-multimonth-title {
+  color: hsl(var(--foreground));
+  font-weight: 700;
+}
+
+.fc-multimonth-month {
+  flex: 1 1 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding: 0.25rem;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Mobile
+────────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .fc .fc-toolbar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  .fc .fc-toolbar-chunk {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .fc .fc-toolbar-chunk button {
+    margin: 0 !important;
+  }
+
+  .fc .fc-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .fc .fc-button {
+    padding: 0.3rem 0.55rem !important;
+    font-size: 0.75rem !important;
+    border-radius: 6px !important;
+  }
+
+  .fc .fc-timegrid-slot {
+    height: 40px !important;
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    font-size: 0.5rem !important;
+    padding: 0.1rem 0 !important;
+  }
+
+  .fc .fc-daygrid-day-number {
+    font-size: 0.7rem !important;
+    padding: 0.2rem !important;
+  }
+
+  .fc .fc-more-popover .fc-popover-body {
+    min-width: 180px;
+    max-height: 220px;
+  }
+}
+
+/* ==========================================================
+   FULLCALENDAR DARK MODE OVERRIDES
+   (KEEP THIS AT THE VERY END OF THE FILE)
+========================================================== */
+
+.dark .fc {
+  color: hsl(var(--foreground)) !important;
+  background: transparent !important;
+}
+
+/* ----------------------------------------------------------
+   Borders
+---------------------------------------------------------- */
+
+.dark .fc-theme-standard td,
+.dark .fc-theme-standard th,
+.dark .fc-theme-standard .fc-scrollgrid,
+.dark .fc-theme-standard .fc-scrollgrid-section > * {
+  border-color: hsl(var(--border)) !important;
+}
+
+/* ----------------------------------------------------------
+   Day Grid / Month View
+---------------------------------------------------------- */
+
+.dark .fc .fc-daygrid-body,
+.dark .fc .fc-daygrid-body table,
+.dark .fc .fc-scrollgrid,
+.dark .fc .fc-scrollgrid-section,
+.dark .fc .fc-scrollgrid-section table {
+  background: hsl(var(--background)) !important;
+}
+
+.dark .fc .fc-daygrid-day,
+.dark .fc .fc-daygrid-day-frame {
+  background: hsl(var(--background)) !important;
+}
+
+.dark .fc .fc-daygrid-day-number {
+  color: hsl(var(--foreground)) !important;
+  font-weight: 500;
+  opacity: 1 !important;
+}
+
+.dark .fc .fc-day-other {
+  background: hsl(var(--background)) !important;
+}
+
+.dark .fc .fc-day-other .fc-daygrid-day-number {
+  color: hsl(var(--muted-foreground)) !important;
+  opacity: 0.5 !important;
+}
+
+/* ----------------------------------------------------------
+   Column Headers
+---------------------------------------------------------- */
+
+.dark .fc .fc-col-header-cell {
+  background: hsl(var(--card)) !important;
+}
+
+.dark .fc .fc-col-header-cell-cushion,
+.dark .fc .fc-col-header-cell-cushion:link,
+.dark .fc .fc-col-header-cell-cushion:visited {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* ----------------------------------------------------------
+   Time Grid
+---------------------------------------------------------- */
+
+.dark .fc .fc-timegrid-col {
+  background: hsl(var(--background)) !important;
+}
+
+.dark .fc .fc-timegrid-slot {
+  border-color: hsl(var(--border)) !important;
+}
+
+.dark .fc .fc-timegrid-axis {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* ----------------------------------------------------------
+   Today
+---------------------------------------------------------- */
+
+.dark .fc .fc-day-today,
+.dark .fc .fc-timegrid-col.fc-day-today {
+  background: hsl(var(--accent) / 0.12) !important;
+}
+
+/* ----------------------------------------------------------
+   Multi Month
+---------------------------------------------------------- */
+
+.dark .fc-multimonth {
+  background: transparent !important;
+}
+
+.dark .fc-multimonth-month {
+  background: hsl(var(--background)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 10px;
+}
+
+.dark .fc-multimonth-header {
+  background: hsl(var(--card)) !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+}
+
+.dark .fc-multimonth-title {
+  color: hsl(var(--foreground)) !important;
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------
+   Event Containers
+---------------------------------------------------------- */
+
+.dark .fc .fc-daygrid-event-harness {
+  color: inherit !important;
+}
+
+.dark .fc .fc-event {
+  box-shadow: none !important;
+}
+
+/* ----------------------------------------------------------
+   More Popover
+---------------------------------------------------------- */
+
+/* ──────────────────────────────────────────────────────────────
+   Event Text (Week/Day View)
+────────────────────────────────────────────────────────────── */
+
+.dark .fc .fc-timegrid-event-harness .fc-event-main,
+.dark .fc .fc-timegrid-event-harness .fc-event-main-wrap,
+.dark .fc .fc-timegrid-event .fc-event-main {
+  color: hsl(var(--popover-foreground)) !important;
+}
+
+/* ----------------------------------------------------------
+   More Popover (Month/Week View)
+---------------------------------------------------------- */
+
+/* More button popover container */
+.dark .fc-more-popover {
+  background: #0f172a !important;
+  border: 1px solid hsl(var(--border)) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Popover header */
+.dark .fc-more-popover .fc-popover-header {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+}
+
+/* Popover body */
+.dark .fc-more-popover .fc-popover-body {
+  background: hsl(var(--popover)) !important;
+  color: hsl(var(--popover-foreground)) !important;
+}
+
+/* Text inside popover */
+.dark .fc-more-popover .fc-event-main,
+.dark .fc-more-popover .fc-event-time {
+  color: hsl(var(--popover-foreground)) !important;
+}
+
+/* Scrollbar for popover */
+.dark .fc-more-popover .fc-popover-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark .fc-more-popover .fc-popover-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark .fc-more-popover .fc-popover-body::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+
+/* ----------------------------------------------------------
+   Toolbar
+---------------------------------------------------------- */
+
+.dark .fc .fc-toolbar-title {
+  color: hsl(var(--foreground)) !important;
+}

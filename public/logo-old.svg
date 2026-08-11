@@ -1,0 +1,96 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 390 96"
+  role="img"
+  aria-labelledby="scheduler-logo-title scheduler-logo-desc"
+  style="color: var(--scheduler-logo-primary, var(--primary, #2563eb));"
+>
+  <title id="scheduler-logo-title">Schedular System</title>
+  <desc id="scheduler-logo-desc">
+    Theme-aware Schedular System logo with a professional salon scissors mark.
+  </desc>
+  <style>
+    .scheduler-logo-mark-line {
+      fill: none;
+      stroke: var(--scheduler-logo-surface, var(--primary-foreground, #ffffff));
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .scheduler-logo-mark-fill {
+      fill: var(--scheduler-logo-surface, var(--primary-foreground, #ffffff));
+    }
+
+    .scheduler-logo-wordmark {
+      fill: var(--scheduler-logo-wordmark, var(--foreground, #111827));
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 31px;
+      font-weight: 790;
+      letter-spacing: 0;
+    }
+
+    .scheduler-logo-wordmark-light {
+      fill: var(--scheduler-logo-muted, var(--muted-foreground, #64748b));
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 31px;
+      font-weight: 610;
+      letter-spacing: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .scheduler-logo-wordmark {
+        fill: var(--scheduler-logo-wordmark, var(--foreground, #f8fafc));
+      }
+
+      .scheduler-logo-wordmark-light {
+        fill: var(--scheduler-logo-muted, var(--muted-foreground, #94a3b8));
+      }
+    }
+  </style>
+
+  <g transform="translate(8 8)">
+    <rect width="80" height="80" rx="21" fill="currentColor" />
+    <path
+      class="scheduler-logo-mark-line"
+      d="M35.4 40 60.8 18.8"
+      stroke-width="6.2"
+    />
+    <path
+      class="scheduler-logo-mark-line"
+      d="M35.4 40 61.2 61.4"
+      stroke-width="6.2"
+    />
+    <path
+      class="scheduler-logo-mark-line"
+      d="M29.8 34.7 22.2 28.2"
+      stroke-width="5.2"
+    />
+    <path
+      class="scheduler-logo-mark-line"
+      d="M29.8 45.3 22.2 51.8"
+      stroke-width="5.2"
+    />
+    <circle
+      cx="21.4"
+      cy="25.4"
+      r="9.4"
+      fill="none"
+      stroke="var(--scheduler-logo-surface, var(--primary-foreground, #ffffff))"
+      stroke-width="5.2"
+    />
+    <circle
+      cx="21.4"
+      cy="54.6"
+      r="9.4"
+      fill="none"
+      stroke="var(--scheduler-logo-surface, var(--primary-foreground, #ffffff))"
+      stroke-width="5.2"
+    />
+    <circle class="scheduler-logo-mark-fill" cx="35.5" cy="40" r="4.7" />
+  </g>
+
+  <g transform="translate(110 31)">
+    <text class="scheduler-logo-wordmark" x="0" y="31">Schedular</text>
+    <text class="scheduler-logo-wordmark-light" x="158" y="31">System</text>
+  </g>
+</svg>
