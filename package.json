@@ -3,22 +3,15 @@
   "version": "0.0.1",
   "type": "module",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "build:production": "cross-env NODE_ENV=production next build && npm run copy-standalone-assets",
-    "build:staging": "cross-env NODE_ENV=test next build && npm run copy-standalone-assets",
-    "build:development": "cross-env NODE_ENV=test next build && npm run copy-standalone-assets",
-    "postbuild": "npm run copy-standalone-assets",
-    "copy-standalone-assets": "powershell -Command \"Copy-Item -Recurse -Force .next\\static .next\\standalone\\.next\\static; Copy-Item -Recurse -Force public .next\\standalone\\public\"",
-    "start": "next start",
-    "start:standalone": "node .next/standalone/server.js",
-    "deploy:development": "pm2 startOrRestart ecosystem.config.cjs --env test",
-    "deploy:staging": "pm2 startOrRestart ecosystem.config.cjs --env test",
-    "deploy:production": "pm2 startOrRestart ecosystem.config.cjs --env production",
-    "lint": "next lint",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\""
-  },
+"scripts": {
+  "dev": "next dev --turbopack",
+  "build": "next build",
+  "build:production": "cross-env NODE_ENV=production next build",
+  "build:staging": "cross-env NODE_ENV=test next build",
+  "build:development": "cross-env NODE_ENV=test next build",
+  "start": "next start",
+  "lint": "next lint"
+},
   "dependencies": {
     "@bprogress/next": "^3.2.12",
     "@fullcalendar/core": "^6.1.20",
