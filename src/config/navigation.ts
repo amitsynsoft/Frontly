@@ -71,12 +71,7 @@ export const dashboardNavigation: NavigationItem[] = [
     icon: Scissors,
     roles: [ROLES.SUPER_ADMIN],
   },
-  {
-    title: "Customers",
-    href: DASHBOARD_ROUTES.customers,
-    icon: WalletCards,
-    roles: operationsRoles,
-  },
+
   {
     title: "Resource Types",
     href: DASHBOARD_ROUTES.resourceTypes,
@@ -95,6 +90,12 @@ export const dashboardNavigation: NavigationItem[] = [
     href: DASHBOARD_ROUTES.staffSchedules,
     icon: CalendarCheck2,
     roles: [ROLES.ORGANIZATION_ADMIN, ROLES.BRANCH_MANAGER],
+  },
+    {
+    title: "Customers",
+    href: DASHBOARD_ROUTES.customers,
+    icon: WalletCards,
+    roles: [ROLES.SUPER_ADMIN, ROLES.ORGANIZATION_ADMIN, ROLES.BRANCH_MANAGER, ROLES.STAFF],
   },
   {
     title: "Bookings",
