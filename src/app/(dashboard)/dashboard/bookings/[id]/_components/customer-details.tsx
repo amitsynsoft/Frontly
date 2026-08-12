@@ -42,12 +42,12 @@ export function CustomerDetails({
         {customer ? (
           <div className="flex items-center gap-3.5">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-sm font-bold text-primary-foreground shadow-sm">
-              {getCustomerInitials("Michael Anderson")}
+              {getCustomerInitials("Robert Wilson")}
             </div>
             <div className="min-w-0">
               <h4 className="truncate text-sm font-bold text-foreground">
                 {/* {customer.fullName} */}
-                Michael Anderson
+                Robert Wilson
               </h4>
               <p className="mt-0.5 text-xs font-semibold text-muted-foreground">
                 Customer ID: #{customerId}

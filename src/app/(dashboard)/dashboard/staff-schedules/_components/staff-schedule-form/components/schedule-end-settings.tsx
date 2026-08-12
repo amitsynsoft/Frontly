@@ -43,7 +43,7 @@ export function ScheduleEndSettings({ form }: ScheduleEndSettingsProps) {
         name="schedulePattern.startDate"
         label="Starts on"
         placeholder="Select start date"
-        allowPastDates={false}
+        allowPastDates={true}
       />
 
       <FormField
@@ -82,7 +82,7 @@ export function ScheduleEndSettings({ form }: ScheduleEndSettingsProps) {
           name="schedulePattern.untilDate"
           label="End date"
           placeholder="Select end date"
-          allowPastDates={false}
+          allowPastDates={true}
           description="Availability includes this date."
           minDate={
             form.getValues("schedulePattern.startDate")

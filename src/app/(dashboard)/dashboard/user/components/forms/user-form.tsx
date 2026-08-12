@@ -360,7 +360,6 @@ export function UserForm({
                 name="email"
                 label="Email"
                 required
-                disabled={isEdit}
                 type="email"
                 placeholder="user@example.com"
                 autoComplete="email"

@@ -1,6 +1,6 @@
 "use client"
 
-import { endOfMonth,format, startOfMonth } from "date-fns"
+import { endOfMonth, format, startOfMonth } from "date-fns"
 import { CalendarIcon, RotateCcw, Search, Users } from "lucide-react"
 import { useRouter } from "next/navigation"
 import * as React from "react"
@@ -42,7 +42,7 @@ import type { CustomerBookingDto } from "@/types/dtos/booking.dto"
 import type { GetAllTenents } from "@/types/dtos/tenent.dto"
 import type { UserDTO } from "@/types/dtos/user.dto"
 
-import { type BookingRow,getBookingColumns } from "./booking-columns"
+import { type BookingRow, getBookingColumns } from "./booking-columns"
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -91,7 +91,9 @@ function FilterDatePicker({
               !value && "text-muted-foreground"
             )}
           >
-            {value ? format(parseLocalDate(value)!, "MMM d, yyyy") : "Pick a date"}
+            {value
+              ? format(parseLocalDate(value)!, "MMM d, yyyy")
+              : "Pick a date"}
             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
           </Button>
         </PopoverTrigger>
@@ -502,7 +504,11 @@ export function BookingsClient() {
 
         <CardContent className="pt-6">
           <DataTable
-            data={bookings as CustomerBookingDto[]}
+            data={
+              bookings?.filter(
+                (booking) => booking.status !== "Cancelled"
+              ) as CustomerBookingDto[]
+            }
             columns={columns}
             emptyMessage="No bookings found."
             emptyDescription="Try adjusting your filters or date range to see bookings."

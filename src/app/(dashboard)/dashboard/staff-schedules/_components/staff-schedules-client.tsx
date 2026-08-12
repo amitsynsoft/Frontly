@@ -239,7 +239,7 @@ export function StaffSchedulesClient() {
             <CardHeader className="gap-4" />
             <CardContent>
               <DataTable
-                data={schedules}
+                data={schedules.slice(1)}
                 columns={columns}
                 emptyMessage="No schedules found."
                 emptyDescription="Try adjusting your filters or add a new schedule."

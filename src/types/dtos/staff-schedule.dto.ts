@@ -9,7 +9,7 @@ export interface StaffScheduleRequest {
 }
 
 export interface StaffScheduleResponse {
-  id: string
+  id: number | string
   tenantUserId: string
   branchId: string
   scheduleDate: string

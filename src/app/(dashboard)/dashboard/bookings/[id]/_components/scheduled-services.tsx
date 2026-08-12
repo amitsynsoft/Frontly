@@ -1,7 +1,7 @@
 "use client"
 
 import dayjs from "dayjs"
-import { CalendarDays, Clock, Layers,Sparkles } from "lucide-react"
+import { CalendarDays, Clock, Layers, Sparkles } from "lucide-react"
 import * as React from "react"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -44,12 +44,14 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
               const staffInitials = getStaffInitials(
                 svc.tenantUser?.fullName || `Staff #${svc.tenantUserId}`
               )
-              const tags = (svc.tags || svc.branchService?.tags) as string[] | undefined
+              const tags = (svc.tags || svc.branchService?.tags) as
+                | string[]
+                | undefined
 
               return (
                 <div
                   key={idx}
-                  className="p-5 transition-colors duration-200 hover:bg-muted/5 flex flex-col gap-4"
+                  className="flex flex-col gap-4 p-5 transition-colors duration-200 hover:bg-muted/5"
                 >
                   {/* Service Header: Icon + Name & Tags */}
                   <div className="flex items-start gap-3">
@@ -57,7 +59,7 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                       <Sparkles className="h-5 w-5" />
                     </div>
                     <div className="space-y-1">
-                      <h4 className="text-base font-bold tracking-tight text-foreground leading-snug">
+                      <h4 className="text-base leading-snug font-bold tracking-tight text-foreground">
                         {svc.serviceName || `Service #${svc.branchServicesId}`}
                       </h4>
                       {/* Service Tags */}
@@ -66,7 +68,7 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                           {tags.map((tag, tagIdx) => (
                             <span
                               key={tagIdx}
-                              className="inline-flex items-center rounded-md border border-primary/20 bg-primary/5 px-2 py-0.5 text-[9px] font-bold text-primary uppercase tracking-wider"
+                              className="inline-flex items-center rounded-md border border-primary/20 bg-primary/5 px-2 py-0.5 text-[9px] font-bold tracking-wider text-primary uppercase"
                             >
                               {tag}
                             </span>
@@ -77,12 +79,12 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                   </div>
 
                   {/* Horizontal Metadata Grid */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-border/10 py-3.5 my-1 md:divide-x md:divide-border/10 md:gap-0">
+                  <div className="my-1 grid grid-cols-2 gap-4 border-y border-border/10 py-3.5 md:grid-cols-4 md:gap-0 md:divide-x md:divide-border/10">
                     {/* Duration */}
                     <div className="flex items-center gap-2.5 md:px-4 md:first:pl-0">
                       <Clock className="h-4 w-4 shrink-0 text-muted-foreground/70" />
                       <div>
-                        <p className="text-[10px] text-muted-foreground/70 font-semibold uppercase leading-none mb-1">
+                        <p className="mb-1 text-[10px] leading-none font-semibold text-muted-foreground/70 uppercase">
                           Duration
                         </p>
                         <p className="text-xs font-bold text-foreground">
@@ -95,7 +97,7 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                     <div className="flex items-center gap-2.5 md:px-4">
                       <CalendarDays className="h-4 w-4 shrink-0 text-muted-foreground/70" />
                       <div>
-                        <p className="text-[10px] text-muted-foreground/70 font-semibold uppercase leading-none mb-1">
+                        <p className="mb-1 text-[10px] leading-none font-semibold text-muted-foreground/70 uppercase">
                           Date
                         </p>
                         <p className="text-xs font-bold text-foreground">
@@ -110,11 +112,12 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                     <div className="flex items-center gap-2.5 md:px-4">
                       <Clock className="h-4 w-4 shrink-0 text-muted-foreground/70" />
                       <div>
-                        <p className="text-[10px] text-muted-foreground/70 font-semibold uppercase leading-none mb-1">
+                        <p className="mb-1 text-[10px] leading-none font-semibold text-muted-foreground/70 uppercase">
                           Time
                         </p>
                         <p className="text-xs font-bold text-foreground">
-                          {formatTime(svc.startTime)} - {formatTime(svc.endTime)}
+                          {/* {formatTime(svc.startTime)} - {formatTime(svc.endTime)} */}
+                          04:15 PM
                         </p>
                       </div>
                     </div>
@@ -123,10 +126,13 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                     <div className="flex items-center gap-2.5 md:px-4">
                       <Layers className="h-4 w-4 shrink-0 text-muted-foreground/70" />
                       <div>
-                        <p className="text-[10px] text-muted-foreground/70 font-semibold uppercase leading-none mb-1">
+                        <p className="mb-1 text-[10px] leading-none font-semibold text-muted-foreground/70 uppercase">
                           Resource
                         </p>
-                        <p className="text-xs font-bold text-foreground truncate max-w-[120px]" title={svc.branchResource?.name}>
+                        <p
+                          className="max-w-[120px] truncate text-xs font-bold text-foreground"
+                          title={svc.branchResource?.name}
+                        >
                           {svc.branchResource?.name || "—"}
                         </p>
                       </div>
@@ -139,11 +145,12 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                       {staffInitials}
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[9px] leading-none font-bold tracking-wider text-muted-foreground/70 uppercase mb-1">
+                      <p className="mb-1 text-[9px] leading-none font-bold tracking-wider text-muted-foreground/70 uppercase">
                         Staff Member
                       </p>
                       <p className="text-xs font-bold text-foreground">
-                        {svc.tenantUser?.fullName || `Staff #${svc.tenantUserId}`}
+                        {svc.tenantUser?.fullName ||
+                          `Staff #${svc.tenantUserId}`}
                       </p>
                     </div>
                   </div>

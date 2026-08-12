@@ -94,7 +94,7 @@ export function ChatBubbleList({ messages }: ChatBubbleListProps) {
 
               {/* Speech Bubble */}
               <div
-                className={`rounded-2xl px-4 py-3 text-sm leading-relaxed transition-all shadow-xs ${
+                className={`whitespace-pre-line rounded-2xl px-4 py-3 text-sm leading-relaxed transition-all shadow-xs ${
                   isAI
                     ? "rounded-tl-xs bg-muted/40 text-foreground border border-border/30 hover:border-border/60"
                     : "rounded-tr-xs bg-primary text-primary-foreground hover:bg-primary/95"

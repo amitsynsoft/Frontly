@@ -59,7 +59,8 @@ export const getBookingColumns = (
           {getFirstAppointmentDate(row)}
         </span>
         <span className="text-xs text-muted-foreground">
-          {getFirstStartTime(row)}
+          {/* {getFirstStartTime(row)} */}
+          4:15 PM
         </span>
       </div>
     ),
@@ -71,7 +72,7 @@ export const getBookingColumns = (
     cell: (_value: unknown, row: BookingRow) => (
       <div className="flex flex-col gap-0.5">
         <span className="text-sm font-medium">
-          Michael Anderson
+          Robert Wilson
           {/* {row.customer?.fullName || "—"} */}
         </span>
         <span className="text-xs text-muted-foreground">

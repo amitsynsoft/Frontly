@@ -1,6 +1,14 @@
 "use client"
 
-import { Calendar, Mail, Phone, User, Hash, CheckCircle2, XCircle } from "lucide-react"
+import {
+  Calendar,
+  Mail,
+  Phone,
+  User,
+  Hash,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
@@ -64,9 +72,11 @@ export function ViewCustomerModal({
               className="h-14 w-14 border border-border"
             />
             <div className="space-y-1">
-              <h3 className="text-base font-bold text-foreground">{customer.name}</h3>
+              <h3 className="text-base font-bold text-foreground">
+                {customer.name}
+              </h3>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-md">
+                <span className="rounded-md bg-primary/10 px-2 py-0.5 font-mono text-xs font-semibold text-primary">
                   {customer.id}
                 </span>
                 <StatusBadge status={customer.status} />
@@ -94,7 +104,9 @@ export function ViewCustomerModal({
                 <Phone className="h-4 w-4 text-primary" />
                 Phone Number
               </span>
-              <span className="font-medium text-foreground">{customer.phone}</span>
+              <span className="font-medium text-foreground">
+                {customer.phone}
+              </span>
             </div>
 
             <div className="flex items-center justify-between border-b border-border/50 pb-2.5">
@@ -216,7 +228,7 @@ export function CustomerFormModal({
             <Label htmlFor="cust-name">Customer Name</Label>
             <Input
               id="cust-name"
-              placeholder="e.g. Michael Anderson"
+              placeholder="e.g. Robert Wilson"
               {...register("name", { required: true })}
             />
           </div>
@@ -226,7 +238,7 @@ export function CustomerFormModal({
             <Input
               id="cust-email"
               type="email"
-              placeholder="e.g. michael.anderson@gmail.com"
+              placeholder="e.g. rwilson@gmail.com"
               {...register("email", { required: true })}
             />
           </div>
