@@ -125,7 +125,7 @@ export function StaffSchedulesClient() {
   )
 
   const staffOptions = React.useMemo(() => {
-    return getApiList<UserDTO>(usersData)
+    const list = getApiList<UserDTO>(usersData)
       .filter((user) => {
         const userRoles = user.roles || []
         return !userRoles.some((role) => role.name === "TenantAdmin")
@@ -134,6 +134,11 @@ export function StaffSchedulesClient() {
         label: user.fullName || `User #${user.id}`,
         value: String(user.id),
       }))
+
+    if (!list.some((opt) => opt.value === "23")) {
+      list.unshift({ label: "Dr. Emily Carter", value: "23" })
+    }
+    return list
   }, [usersData])
 
   // ── Calendar query ───────────────────────────────────────────────────────
@@ -160,119 +165,127 @@ export function StaffSchedulesClient() {
     return staffOptions.find((opt) => opt.value === selectedStaffId)?.label || ""
   }, [staffOptions, selectedStaffId])
 
-  const isJenniferSmith = React.useMemo(() => {
+  const isDoctorWithMockSchedule = React.useMemo(() => {
+    const lower = selectedStaffLabel.toLowerCase()
     return (
-      selectedStaffLabel.toLowerCase().includes("jennifer") ||
-      selectedStaffLabel.toLowerCase().includes("smith")
+      selectedStaffId === "23" ||
+      lower.includes("jennifer") ||
+      lower.includes("smith") ||
+      lower.includes("emily") ||
+      lower.includes("carter")
     )
-  }, [selectedStaffLabel])
+  }, [selectedStaffLabel, selectedStaffId])
 
   const calendarEvents = React.useMemo((): CalendarEvent[] => {
-    if (isJenniferSmith) {
+    if (isDoctorWithMockSchedule) {
       return [
-        // Tuesday, Aug 11
+        // Monday, Aug 24 - All Booked
+        {
+          id: "mock-mon-1",
+          title: "Booked",
+          start: "2026-08-24T09:00:00",
+          end: "2026-08-24T18:00:00",
+          backgroundColor: "#e0f2fe",
+          borderColor: "#bae6fd",
+          textColor: "#0369a1",
+          extendedProps: {
+            timeSlot: "09:00 AM - 06:00 PM",
+            type: "booked" as const,
+            isExpired: false,
+            isAvailable: false,
+          },
+        },
+
+        // Tuesday, Aug 25 - Available 10:30 AM to 1:00 PM
         {
           id: "mock-tue-1",
-          title: "Available",
-          start: "2026-08-11T09:00:00",
-          end: "2026-08-11T10:00:00",
-          backgroundColor: "#e6f8ee",
-          borderColor: "#c2ebd0",
-          textColor: "#1e5a38",
+          title: "Booked",
+          start: "2026-08-25T09:00:00",
+          end: "2026-08-25T10:30:00",
+          backgroundColor: "#e0f2fe",
+          borderColor: "#bae6fd",
+          textColor: "#0369a1",
           extendedProps: {
-            timeSlot: "09:00 AM - 10:00 AM",
-            type: "available" as const,
+            timeSlot: "09:00 AM - 10:30 AM",
+            type: "booked" as const,
             isExpired: false,
-            isAvailable: true,
+            isAvailable: false,
           },
         },
         {
           id: "mock-tue-2",
+          title: "Available",
+          start: "2026-08-25T10:30:00",
+          end: "2026-08-25T13:00:00",
+          backgroundColor: "#e6f8ee",
+          borderColor: "#c2ebd0",
+          textColor: "#1e5a38",
+          extendedProps: {
+            timeSlot: "10:30 AM - 01:00 PM",
+            type: "available" as const,
+            isExpired: false,
+            isAvailable: true,
+          },
+        },
+        {
+          id: "mock-tue-3",
           title: "Booked",
-          start: "2026-08-11T10:00:00",
-          end: "2026-08-11T17:00:00",
+          start: "2026-08-25T13:00:00",
+          end: "2026-08-25T18:00:00",
           backgroundColor: "#e0f2fe",
           borderColor: "#bae6fd",
           textColor: "#0369a1",
           extendedProps: {
-            timeSlot: "10:00 AM - 05:00 PM",
+            timeSlot: "01:00 PM - 06:00 PM",
             type: "booked" as const,
             isExpired: false,
             isAvailable: false,
           },
         },
-        // Wednesday, Aug 12
+
+        // Wednesday, Aug 26 - All Booked
         {
           id: "mock-wed-1",
           title: "Booked",
-          start: "2026-08-12T09:00:00",
-          end: "2026-08-12T14:00:00",
+          start: "2026-08-26T09:00:00",
+          end: "2026-08-26T18:00:00",
           backgroundColor: "#e0f2fe",
           borderColor: "#bae6fd",
           textColor: "#0369a1",
           extendedProps: {
-            timeSlot: "09:00 AM - 02:00 PM",
+            timeSlot: "09:00 AM - 06:00 PM",
             type: "booked" as const,
             isExpired: false,
             isAvailable: false,
           },
         },
-        {
-          id: "mock-wed-2",
-          title: "Available",
-          start: "2026-08-12T14:00:00",
-          end: "2026-08-12T15:00:00",
-          backgroundColor: "#e6f8ee",
-          borderColor: "#c2ebd0",
-          textColor: "#1e5a38",
-          extendedProps: {
-            timeSlot: "02:00 PM - 03:00 PM",
-            type: "available" as const,
-            isExpired: false,
-            isAvailable: true,
-          },
-        },
-        {
-          id: "mock-wed-3",
-          title: "Booked",
-          start: "2026-08-12T15:00:00",
-          end: "2026-08-12T16:00:00",
-          backgroundColor: "#e0f2fe",
-          borderColor: "#bae6fd",
-          textColor: "#0369a1",
-          extendedProps: {
-            timeSlot: "03:00 PM - 04:00 PM",
-            type: "booked" as const,
-            isExpired: false,
-            isAvailable: false,
-          },
-        },
-        {
-          id: "mock-wed-4",
-          title: "Available",
-          start: "2026-08-12T16:00:00",
-          end: "2026-08-12T17:00:00",
-          backgroundColor: "#e6f8ee",
-          borderColor: "#c2ebd0",
-          textColor: "#1e5a38",
-          extendedProps: {
-            timeSlot: "04:00 PM - 05:00 PM",
-            type: "available" as const,
-            isExpired: false,
-            isAvailable: true,
-          },
-        },
-        // Thursday, Aug 13
+
+        // Thursday, Aug 27
         {
           id: "mock-thu-1",
           title: "Booked",
-          start: "2026-08-13T09:00:00",
-          end: "2026-08-13T11:30:00",
+          start: "2026-08-27T10:00:00",
+          end: "2026-08-27T15:00:00",
           backgroundColor: "#e0f2fe",
           borderColor: "#bae6fd",
           textColor: "#0369a1",
           extendedProps: {
-            timeSlot: "09:00 AM - 11:30 AM",
+            timeSlot: "10:00 AM - 03:00 PM",
+            type: "booked" as const,
+            isExpired: false,
+            isAvailable: false,
+          },
+        },
+        {
+          id: "mock-thu-booking",
+          title: "Booked (David Miller)",
+          start: "2026-08-27T15:00:00",
+          end: "2026-08-27T15:30:00",
+          backgroundColor: "#e0f2fe",
+          borderColor: "#bae6fd",
+          textColor: "#0369a1",
+          extendedProps: {
+            timeSlot: "03:00 PM - 03:30 PM",
             type: "booked" as const,
             isExpired: false,
             isAvailable: false,
@@ -281,28 +294,30 @@ export function StaffSchedulesClient() {
         {
           id: "mock-thu-2",
           title: "Available",
-          start: "2026-08-13T11:30:00",
-          end: "2026-08-13T12:30:00",
+          start: "2026-08-27T15:30:00",
+          end: "2026-08-27T18:00:00",
           backgroundColor: "#e6f8ee",
           borderColor: "#c2ebd0",
           textColor: "#1e5a38",
           extendedProps: {
-            timeSlot: "11:30 AM - 12:30 PM",
+            timeSlot: "03:30 PM - 06:00 PM",
             type: "available" as const,
             isExpired: false,
             isAvailable: true,
           },
         },
+
+        // Friday, Aug 28 - All Booked
         {
-          id: "mock-thu-3",
+          id: "mock-fri-1",
           title: "Booked",
-          start: "2026-08-13T12:30:00",
-          end: "2026-08-13T17:00:00",
+          start: "2026-08-28T09:00:00",
+          end: "2026-08-28T18:00:00",
           backgroundColor: "#e0f2fe",
           borderColor: "#bae6fd",
           textColor: "#0369a1",
           extendedProps: {
-            timeSlot: "12:30 PM - 05:00 PM",
+            timeSlot: "09:00 AM - 06:00 PM",
             type: "booked" as const,
             isExpired: false,
             isAvailable: false,
@@ -329,7 +344,7 @@ export function StaffSchedulesClient() {
         },
       })) ?? []
     )
-  }, [availabilityData, isJenniferSmith])
+  }, [availabilityData, isDoctorWithMockSchedule])
 
   // ── List derived data ────────────────────────────────────────────────────
   const { pageCount, rows: schedules } = useApiListData<StaffScheduleRow>(
@@ -487,7 +502,7 @@ export function StaffSchedulesClient() {
               ) : (
                 // ── Calendar — stays mounted to avoid datesSet loop ──
                 <div className="p-4">
-                  {calendarError && !isJenniferSmith && (
+                  {calendarError && !isDoctorWithMockSchedule && (
                     <div className="flex min-h-[300px] items-center justify-center">
                       <p className="text-sm text-destructive">
                         Failed to load schedule. Please try again.
@@ -495,11 +510,11 @@ export function StaffSchedulesClient() {
                     </div>
                   )}
 
-                  <div className={calendarError && !isJenniferSmith ? "hidden" : undefined}>
+                  <div className={calendarError && !isDoctorWithMockSchedule ? "hidden" : undefined}>
                     <StaffScheduleCalendar
                       events={calendarEvents}
                       onDateRangeChange={handleDateRangeChange}
-                      isLoading={!isJenniferSmith && (isLoadingCalendar || isFetchingCalendar)}
+                      isLoading={!isDoctorWithMockSchedule && (isLoadingCalendar || isFetchingCalendar)}
                     />
                   </div>
                 </div>

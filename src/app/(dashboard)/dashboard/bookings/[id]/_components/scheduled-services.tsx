@@ -101,10 +101,9 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                           Date
                         </p>
                         <p className="text-xs font-bold text-foreground">
-                          {/* {svc.appointmentDate
+                          {svc.appointmentDate
                             ? dayjs(svc.appointmentDate).format("MMM D, YYYY")
-                            : "—"} */}
-                          Aug 12, 2026
+                            : "Aug 27, 2026"}
                         </p>
                       </div>
                     </div>
@@ -117,8 +116,7 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                           Time
                         </p>
                         <p className="text-xs font-bold text-foreground">
-                          {/* {formatTime(svc.startTime)} - {formatTime(svc.endTime)} */}
-                          04:15 PM
+                          {svc.startTime ? formatTime(svc.startTime) : "03:00 PM"}
                         </p>
                       </div>
                     </div>

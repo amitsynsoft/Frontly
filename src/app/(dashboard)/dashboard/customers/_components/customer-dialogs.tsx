@@ -228,7 +228,7 @@ export function CustomerFormModal({
             <Label htmlFor="cust-name">Customer Name</Label>
             <Input
               id="cust-name"
-              placeholder="e.g. Robert Wilson"
+              placeholder="e.g. David Miller"
               {...register("name", { required: true })}
             />
           </div>
@@ -238,7 +238,7 @@ export function CustomerFormModal({
             <Input
               id="cust-email"
               type="email"
-              placeholder="e.g. rwilson@gmail.com"
+              placeholder="e.g. dmiller@gmail.com"
               {...register("email", { required: true })}
             />
           </div>
@@ -247,7 +247,7 @@ export function CustomerFormModal({
             <Label htmlFor="cust-phone">Phone Number</Label>
             <Input
               id="cust-phone"
-              placeholder="e.g. 312-555-4827"
+              placeholder="e.g. 713-555-0198"
               {...register("phone", { required: true })}
             />
           </div>

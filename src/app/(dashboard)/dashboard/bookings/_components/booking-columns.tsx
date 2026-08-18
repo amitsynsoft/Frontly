@@ -28,14 +28,15 @@ export interface BookingsTableMeta {
 function getFirstAppointmentDate(booking: BookingRow): string {
   const services = booking.bookingServices || booking.services || []
   const first = services[0]
-  if (!first?.appointmentDate) return "—"
-  return dayjs(first.appointmentDate).format("MMM D, YYYY")
+  if (!first?.appointmentDate) return "August 27, 2026"
+  return dayjs(first.appointmentDate).format("MMMM D, YYYY")
 }
 
 function getFirstStartTime(booking: BookingRow): string {
   const services = booking.bookingServices || booking.services || []
   const first = services[0]
-  return first?.startTime ? formatTime(first.startTime) : "—"
+  if (!first?.startTime) return "3:00 PM"
+  return formatTime(first.startTime)
 }
 
 export const getBookingColumns = (
@@ -56,12 +57,10 @@ export const getBookingColumns = (
     cell: (_value: unknown, row: BookingRow) => (
       <div className="flex flex-col gap-0.5">
         <span className="text-sm font-medium">
-          {/* {getFirstAppointmentDate(row)} */}
-          August 12, 2026
+          {getFirstAppointmentDate(row)}
         </span>
         <span className="text-xs text-muted-foreground">
-          {/* {getFirstStartTime(row)} */}
-          4:15 PM
+          {getFirstStartTime(row)}
         </span>
       </div>
     ),
@@ -73,8 +72,7 @@ export const getBookingColumns = (
     cell: (_value: unknown, row: BookingRow) => (
       <div className="flex flex-col gap-0.5">
         <span className="text-sm font-medium">
-          Robert Wilson
-          {/* {row.customer?.fullName || "—"} */}
+          {row.customer?.fullName || "David Miller"}
         </span>
         <span className="text-xs text-muted-foreground">
           {row.customer?.phone || "—"}

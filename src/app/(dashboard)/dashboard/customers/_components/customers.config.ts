@@ -3,12 +3,12 @@ import type { CustomerDTO } from "@/types/dtos/customer.dto"
 export const INITIAL_CUSTOMERS_DATA: CustomerDTO[] = [
   {
     id: "CUST-1001",
-    name: "Robert Wilson",
-    email: "rwilson@gmail.com",
-    phone: "312-555-4827",
+    name: "David Miller",
+    email: "dmiller@gmail.com",
+    phone: "713-555-0198",
     status: "Active",
-    totalBookings: 14,
-    lastVisit: "2026-08-08",
-    createdAt: "2024-01-15",
+    totalBookings: 5,
+    lastVisit: "2026-09-27",
+    createdAt: "2024-03-18",
   },
 ]

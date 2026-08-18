@@ -1,63 +1,74 @@
-Demo Call Transcript: Existing Patient Booking a Cleaning Appointment with a Specific Dentist
-Scenario: An existing patient calls Smiles Dental Clinic to schedule a routine cleaning and specifically requests their preferred dentist. This is one of the most common call types received by dental practices.
+Demo Call Transcript: Existing Patient Calling From a New Number
+Scenario: An existing patient calls Smiles Dental Clinic from a phone number that is not associated with their patient record. The patient wants to schedule a routine dental checkup. FrontDeskAI detects that the caller may already be registered, verifies their identity using information already on file, updates the phone number, and then books the appointment.
 
 FrontDeskAI:
-Thank you for calling Smiles Dental Clinic. This is Ava, your virtual receptionist.
-I see you're calling from a phone number associated with Robert Wilson. Is this Robert?
+Thank you for calling Smiles Dental Clinic. This is Ava, your virtual receptionist. How may I help you today?
 Patient:
-Yes, that's me.
+Hi, I'd like to make an appointment for a dental checkup.
 FrontDeskAI:
-Welcome back, Robert. How can I help you today?
+Absolutely. I'd be happy to help with that.
+Are you an existing patient with our practice, or would this be your first visit?
 Patient:
-I'd like to schedule a cleaning appointment.
+Oh, I have visited before. 
 FrontDeskAI:
-I'd be happy to help with that.
-Would you like to schedule with a specific dentist?
+That shouldn’t be a problem. May I have your full name, please?
 Patient:
-I'd like to see Dr. Jennifer Smith if possible.
+Sure. It's David Miller.
 FrontDeskAI:
-Certainly. Let me check Dr. Smith's schedule.
-Checking availability...
-FrontDeskAI:
-I have a few openings available with Dr. Smith:
-Thursday, August 13th at 9:00 AM
-Friday, August 14th at 2:00 PM
-Saturday, Augest 15th at 11:30 AM
-Do any of those times work for you?
+Thank you, David.
+I found a patient record matching that name. Before I access the details on the account, I just need to verify a couple of pieces of information.
+Could you please confirm your date of birth?
 Patient:
-Do you have anything later in the afternoon?
+It's March 18, 1982.
 FrontDeskAI:
-Let me take a closer look.
-Searching additional availability...
-FrontDeskAI:
-Yes, Dr. Smith also has an opening on Friday, August 14th at 4:15 PM.
+Thank you. And can you confirm the ZIP code we have on file for you?
 Patient:
-That works much better.
+It's 77024.
 FrontDeskAI:
-Excellent.
-I also see that you have Delta Dental PPO insurance on file. Has your insurance changed since your last visit?
+Thank you, David. That matches our records.
+I see that you're an existing patient with Smiles Dental Clinic. It looks like the phone number currently on your account is different from the one you're calling from today.
+Would you like us to update your account with this new phone number?
 Patient:
-No, it's still the same.
+Yes, please. I changed my number recently.
 FrontDeskAI:
-Great.
-And I have your email address as rwilson@gmail.com. Is that still the best email for confirmations and reminders?
+I've updated your preferred phone number.
+Now, regarding your appointment—are you looking for a routine dental checkup and cleaning?
 Patient:
-Yes.
+Yes, just a regular checkup and cleaning.
 FrontDeskAI:
-Wonderful.
-I have you scheduled with Dr. Jennifer Smith on Friday, Augest 14th at 4:15 PM for a routine dental cleaning.
+Of course.
+Would you like to see your usual dentist, Dr. Emily Carter, or would you be open to the first available appointment with another dentist?
 Patient:
+I'd prefer Dr. Carter.
+FrontDeskAI:
+Certainly. Let me check Dr. Carter's availability.
+Checking appointment availability...
+FrontDeskAI:
+Dr. Carter has an opening next Tuesday at 10:30 AM and another on Thursday at 3:00 PM.
+Would either of those work for you?
+Patient:
+Thursday at 3:00 would be great.
+FrontDeskAI:
 Perfect.
-FrontDeskAI:
-You'll receive a text message and email confirmation shortly. We'll also send reminders before your appointment.
-Please arrive about 10 minutes early if there have been any changes to your medical history or insurance information.
+I have you scheduled with Dr. Emily Carter on Thursday, 27th August at 3:00 PM for your routine dental examination and cleaning.
 Patient:
-Sounds good. Thankyou.
+Great.
 FrontDeskAI:
-You're very welcome, Robert.
-Thank you for choosing Smiles Dental Clinic. We look forward to seeing you soon.
-Have a wonderful day.
+Since we've updated your phone number, I'll send the appointment confirmation to your new number.
+Would you also like to keep your existing email address on the account?
 Patient:
-You too. Goodbye.
+Yes, that's still the same.
 FrontDeskAI:
-Goodbye.
+Perfect.
+You'll receive a confirmation text and email shortly, and we'll send you a reminder before your appointment.
+Is there anything else I can help you with today?
+Patient:
+No, that's all.
+FrontDeskAI:
+Great, David.
+Just to confirm, you're scheduled with Dr. Emily Carter on Thursday, 27th August at 3:00 PM for a routine dental checkup and cleaning, and we've updated your phone number on your patient record.
+Thank you for calling Smiles Dental Clinic. We look forward to seeing you.
+Patient:
+Thank you. Bye.
+FrontDeskAI:
+You're very welcome. Goodbye.
