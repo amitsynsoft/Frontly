@@ -116,7 +116,9 @@ export function ScheduledServices({ services }: ScheduledServicesProps) {
                           Time
                         </p>
                         <p className="text-xs font-bold text-foreground">
-                          {svc.startTime ? formatTime(svc.startTime) : "03:00 PM"}
+                          {svc.startTime
+                            ? formatTime(svc.startTime)
+                            : "03:00 PM"}
                         </p>
                       </div>
                     </div>

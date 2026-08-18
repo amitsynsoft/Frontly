@@ -162,7 +162,9 @@ export function StaffSchedulesClient() {
   )
 
   const selectedStaffLabel = React.useMemo(() => {
-    return staffOptions.find((opt) => opt.value === selectedStaffId)?.label || ""
+    return (
+      staffOptions.find((opt) => opt.value === selectedStaffId)?.label || ""
+    )
   }, [staffOptions, selectedStaffId])
 
   const isDoctorWithMockSchedule = React.useMemo(() => {
@@ -510,11 +512,20 @@ export function StaffSchedulesClient() {
                     </div>
                   )}
 
-                  <div className={calendarError && !isDoctorWithMockSchedule ? "hidden" : undefined}>
+                  <div
+                    className={
+                      calendarError && !isDoctorWithMockSchedule
+                        ? "hidden"
+                        : undefined
+                    }
+                  >
                     <StaffScheduleCalendar
                       events={calendarEvents}
                       onDateRangeChange={handleDateRangeChange}
-                      isLoading={!isDoctorWithMockSchedule && (isLoadingCalendar || isFetchingCalendar)}
+                      isLoading={
+                        !isDoctorWithMockSchedule &&
+                        (isLoadingCalendar || isFetchingCalendar)
+                      }
                     />
                   </div>
                 </div>
