@@ -58,7 +58,7 @@ export const getBookingColumns = (
       <div className="flex flex-col gap-0.5">
         <span className="text-sm font-medium">
           {/* {getFirstAppointmentDate(row)} */}
-          August 12, 2026
+          August 27, 2026
         </span>
         <span className="text-xs text-muted-foreground">
           {getFirstStartTime(row)}

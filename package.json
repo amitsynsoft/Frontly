@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "type": "module",
   "private": true,
-"scripts": {
-  "dev": "next dev --turbopack",
-  "build": "next build",
-  "build:production": "cross-env NODE_ENV=production next build",
-  "build:staging": "cross-env NODE_ENV=test next build",
-  "build:development": "cross-env NODE_ENV=test next build",
-  "start": "next start",
-  "lint": "next lint"
-},
+  "scripts": {
+    "dev": "node init && next dev --turbopack",
+    "build": "node init && next build",
+    "build:production": "cross-env NODE_ENV=production next build",
+    "build:staging": "cross-env NODE_ENV=test next build",
+    "build:development": "cross-env NODE_ENV=test next build",
+    "start": "node init && next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@bprogress/next": "^3.2.12",
     "@fullcalendar/core": "^6.1.20",
