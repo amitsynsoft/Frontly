@@ -280,7 +280,7 @@ export function StaffSchedulesClient() {
         },
         {
           id: "mock-thu-booking",
-          title: "Booked (David Miller)",
+          title: "Booked",
           start: "2026-08-27T15:00:00",
           end: "2026-08-27T15:30:00",
           backgroundColor: "#e0f2fe",
